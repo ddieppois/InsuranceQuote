@@ -6,4 +6,4 @@ RUN npm install
 COPY . ./
 RUN npm run build
 EXPOSE 8080
-CMD [ "node", "serverIndex.js" ]
+CMD [ "npm", "start --port 8080" ]
