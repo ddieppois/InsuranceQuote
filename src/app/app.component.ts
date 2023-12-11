@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {PersonalInformationComponent} from "./Components/personal-information/personal-information.component";
+import {Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
+import {MainComponent} from "./Components/main/main.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MatSlideToggleModule, PersonalInformationComponent],
+  imports: [RouterOutlet, MainComponent, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

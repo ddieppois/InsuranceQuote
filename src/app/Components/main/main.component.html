@@ -1,0 +1,13 @@
+<p>main works!</p>
+<div [formGroup]="insuranceQuoteForm">
+  <app-personal-info-form [insuranceQuoteForm]="insuranceQuoteForm"></app-personal-info-form>
+  <app-vehicle-selection [insuranceQuoteForm]="insuranceQuoteForm"></app-vehicle-selection>
+  <div>
+    <button (click)="submitQuote()" [disabled]="!insuranceQuoteForm.valid" mat-button>Submit</button>
+  </div>
+</div>
+<app-insurance-quote-response *ngIf="showQuote"
+                              [insuranceQuoteResponse]="insuranceQuoteResponse"
+                              [quoteRequest]="insuranceQuoteRequest"
+                              (toggleEvent)="toggleShowQuote()"></app-insurance-quote-response>
+<p *ngIf="showInsuranceMessage"> {{insuranceMessage}} </p>

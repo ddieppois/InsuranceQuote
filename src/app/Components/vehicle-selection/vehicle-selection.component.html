@@ -1,0 +1,38 @@
+<p>vehicle-selection works!</p>
+<div [formGroup]="insuranceQuoteForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="category" (selectionChange)="onCategoryChange()">
+      <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Make</mat-label>
+    <mat-select formControlName="make" (selectionChange)="onMakeChange()">
+      <mat-option *ngFor="let make of makes" [value]="make">{{ make }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Model</mat-label>
+    <mat-select formControlName="model" (selectionChange)="onModelChange()">
+      <mat-option *ngFor="let model of models" [value]="model">{{ model }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Year</mat-label>
+    <mat-select formControlName="year">
+      <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Car current value</mat-label>
+    <input matInput formControlName="price" type="number" placeholder="Enter price">
+    <mat-error *ngIf="price.invalid">
+      {{getPriceErrorMessage()}}
+    </mat-error>
+  </mat-form-field>
+</div>

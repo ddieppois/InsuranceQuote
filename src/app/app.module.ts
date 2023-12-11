@@ -1,17 +1,14 @@
 import {NgModule} from "@angular/core";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatButtonModule} from "@angular/material/button";
-import {MatNativeDateModule} from "@angular/material/core";
-import {MatDatepickerModule} from "@angular/material/datepicker";
+import {CommonModule} from "@angular/common";
+import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   imports: [
-    MatFormFieldModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatNativeDateModule,
-    MatDatepickerModule
-  ]
+    CommonModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
+  providers: [],
 })
-class AppModule {
-}
+export class AppModule { }
