@@ -7,9 +7,9 @@
     </button>
   </div>
 </div>
+<p *ngIf="showInsuranceMessage" class="error-message"> {{insuranceMessage}} </p>
 <app-insurance-quote-response *ngIf="showQuote"
                               [insuranceQuoteResponse]="insuranceQuoteResponse"
                               [quoteRequest]="insuranceQuoteRequest"
                               (toggleEvent)="toggleShowQuote()"></app-insurance-quote-response>
-<p *ngIf="showInsuranceMessage"> {{insuranceMessage}} </p>
 <app-previous-quotes></app-previous-quotes>

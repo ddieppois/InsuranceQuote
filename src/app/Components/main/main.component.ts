@@ -8,10 +8,11 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {generateRandomReferenceNumber, TEXT_ONLY_REGEX} from "../../Utils/form.utility";
 import {dateBeforeToday} from "../../Utils/FormDateValidator";
 import {InsuranceQuoteResponse} from "../../Models/insurance-quote-response";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {QuoteService} from "../../Services/quote.service";
 import {PreviousQuotesComponent} from "../previous-quotes/previous-quotes.component";
+import {environment} from "../../../environments/environment.development";
 
 @Component({
   selector: 'app-main',
@@ -94,7 +95,11 @@ export class MainComponent implements OnInit {
   }
 
   postRequest(data: any): Observable<any> {
-    return this.http.post<any>("http://localhost:8080/insurance-quote", data);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-API-KEY': environment.apiKey
+    });
+    return this.http.post<any>("http://localhost:8080/insurance-quote", data, {headers});
   }
 
   sendDataToApi(data: InsuranceQuoteRequest) {
@@ -108,6 +113,7 @@ export class MainComponent implements OnInit {
       },
       error => {
         console.error('Error:', error);
+        this.insuranceMessage = error.error;
         this.showInsuranceMessage = true;
       }
     );
