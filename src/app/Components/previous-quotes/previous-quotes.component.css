@@ -1,0 +1,33 @@
+.mat-elevation-z8 {
+  overflow: auto;
+  max-height: 400px;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.form-field {
+  flex: 1 1 100%;
+  margin-right: 20px;
+  margin-bottom: 10px; /* Add space between fields */
+}
+
+/* Responsive design for larger screens */
+@media (min-width: 600px) {
+  .form-field {
+    flex: 1 1 45%;
+  }
+}
+
+button {
+  margin-top: 10px;
+}

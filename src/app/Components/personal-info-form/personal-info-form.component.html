@@ -1,67 +1,77 @@
-<div [formGroup]="insuranceQuoteForm">
-  <mat-form-field appearance="outline">
-    <mat-label>Enter your full name</mat-label>
-    <input formControlName="fullName" matInput placeholder="John Smith" required>
-    <mat-error *ngIf="fullName.invalid">
-      {{getFullNameErrorMessage()}}
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Enter your email</mat-label>
-    <input formControlName="email" matInput placeholder="email@example.com" required type="email">
-    <mat-error *ngIf="email.invalid">
-      {{getEmailErrorMessage()}}
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Select your birthdate</mat-label>
-    <input formControlName="birthDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-    <mat-error *ngIf="birthDate.invalid">
-      {{getBirthDateErrorMessage()}}
-    </mat-error>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-  <mat-form-field appearance="fill">
-    <mat-label>Driving Experience</mat-label>
-    <mat-select formControlName="drivingExperience">
-      <mat-option *ngFor="let option of drivingExperienceOptions" [value]="option.value">
-        {{ option.label }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>At fault traffic viola6ons or accidents in last 5 years</mat-label>
-    <mat-select formControlName="atFaultAccident">
-      <mat-option *ngFor="let option of atFaultAccidentOptions" [value]="option.value">
-        {{ option.label }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Number of Claims</mat-label>
-    <mat-select formControlName="claimsNumber">
-      <mat-option *ngFor="let option of claimsNumberOptions" [value]="option.value">
-        {{ option.label }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Annual driving factor</mat-label>
-    <mat-select formControlName="annualMileage">
-      <mat-option *ngFor="let option of annualMileageOptions" [value]="option.value">
-        {{ option.label }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Insurance history</mat-label>
-    <mat-select formControlName="previousInsurance">
-      <mat-option *ngFor="let option of previousInsuranceOptions" [value]="option.value">
-        {{ option.label }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<div class="form-container" [formGroup]="insuranceQuoteForm">
+  <div class="form-row">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Enter your full name</mat-label>
+      <input formControlName="fullName" matInput placeholder="John Smith" required>
+      <mat-error *ngIf="fullName.invalid">
+        {{getFullNameErrorMessage()}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Enter your email</mat-label>
+      <input formControlName="email" matInput placeholder="email@example.com" required type="email">
+      <mat-error *ngIf="email.invalid">
+        {{getEmailErrorMessage()}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Select your birthdate</mat-label>
+      <input formControlName="birthDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="birthDate.invalid">
+        {{getBirthDateErrorMessage()}}
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Driving Experience</mat-label>
+      <mat-select formControlName="drivingExperience">
+        <mat-option *ngFor="let option of drivingExperienceOptions" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>At fault traffic viola6ons or accidents in last 5 years</mat-label>
+      <mat-select formControlName="atFaultAccident">
+        <mat-option *ngFor="let option of atFaultAccidentOptions" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Number of Claims</mat-label>
+      <mat-select formControlName="claimsNumber">
+        <mat-option *ngFor="let option of claimsNumberOptions" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Annual driving factor</mat-label>
+      <mat-select formControlName="annualMileage">
+        <mat-option *ngFor="let option of annualMileageOptions" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Insurance history</mat-label>
+      <mat-select formControlName="previousInsurance">
+        <mat-option *ngFor="let option of previousInsuranceOptions" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
 

@@ -8,7 +8,10 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {generateRandomReferenceNumber, TEXT_ONLY_REGEX} from "../../Utils/form.utility";
 import {dateBeforeToday} from "../../Utils/FormDateValidator";
 import {InsuranceQuoteResponse} from "../../Models/insurance-quote-response";
-import {InsuranceQuoteAPIService} from "../../Services/insurance-quote-api.service";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {QuoteService} from "../../Services/quote.service";
+import {PreviousQuotesComponent} from "../previous-quotes/previous-quotes.component";
 
 @Component({
   selector: 'app-main',
@@ -19,7 +22,8 @@ import {InsuranceQuoteAPIService} from "../../Services/insurance-quote-api.servi
     InsuranceQuoteResponseComponent,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PreviousQuotesComponent
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
@@ -37,7 +41,8 @@ export class MainComponent implements OnInit {
   showQuote: boolean = false;
   showInsuranceMessage: boolean = false;
 
-  constructor(private insuranceQuoteAPIService: InsuranceQuoteAPIService) {
+  constructor(private http: HttpClient,
+              private quoteService: QuoteService) {
   }
 
   ngOnInit(): void {
@@ -56,6 +61,7 @@ export class MainComponent implements OnInit {
       previousInsurance: new FormControl('', [Validators.required]),
       price: new FormControl('', [Validators.required, Validators.min(0)])
     });
+
   }
 
   submitQuote() {
@@ -87,16 +93,22 @@ export class MainComponent implements OnInit {
     return age;
   }
 
+  postRequest(data: any): Observable<any> {
+    return this.http.post<any>("http://localhost:8080/insurance-quote", data);
+  }
+
   sendDataToApi(data: InsuranceQuoteRequest) {
-    this.insuranceQuoteAPIService.postRequest(data).subscribe(
+    this.showInsuranceMessage = false;
+    this.postRequest(data).subscribe(
       response => {
         console.log('Response from API:', response);
         this.insuranceQuoteResponse = response;
+        this.quoteService.addQuote(response);
         this.showQuote = true;
       },
       error => {
         console.error('Error:', error);
-        showInsuranceMessage: true;
+        this.showInsuranceMessage = true;
       }
     );
   }

@@ -2,3 +2,69 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* General Styles */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.form-field {
+  flex: 1 1 100%;
+  margin-right: 20px;
+}
+
+/* Responsive design for larger screens */
+@media (min-width: 600px) {
+  .form-field {
+    flex: 1 1 45%;
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+.detail-section {
+  background-color: #f2f2f2;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detail-section h2 {
+  margin-top: 0;
+}
+
+/* Style for the main heading */
+.main-heading {
+  text-align: center;
+  color: #1976d2; /* Example color - adjust as needed */
+  margin-bottom: 20px;
+  font-size: 2rem; /* Adjust font size as needed */
+}
+
+/* Styles specific to previous-quotes.component */
+.no-quotes-message {
+  text-align: center;
+  color: #666; /* Example color - can be adjusted */
+  margin-top: 20px;
+  font-style: italic;
+}

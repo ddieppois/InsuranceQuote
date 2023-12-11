@@ -9,10 +9,10 @@ export class InsuranceQuoteAPIService {
 
   private apiUrl = 'http://localhost:8080/insurance-quote';
 
-  constructor(private http: HttpClient) {
-  }
-
-  postRequest(data: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, data);
-  }
+  // constructor(private http: HttpClient) {
+  // }
+  //
+  // postRequest(data: any): Observable<any> {
+  //   return this.http.post<any>(this.apiUrl, data);
+  // }
 }

@@ -1,9 +1,6 @@
-<div *ngIf="insuranceQuoteResponse">
-  <div>
-    <h2>Insurance Quote Details</h2>
-    <p><strong>Reference Number:</strong> {{ insuranceQuoteResponse.referenceNumber }}</p>
-    <p><strong>Premium:</strong> ${{ insuranceQuoteResponse.premium }}</p>
-    <button (click)="toggleShowQuote()">Try another quote</button>
-  </div>
+<div *ngIf="insuranceQuoteResponse" class="detail-section">
+  <h2>Insurance Quote Details</h2>
+  <p><strong>Reference Number:</strong> {{ insuranceQuoteResponse.referenceNumber }}</p>
+  <p><strong>Premium:</strong> ${{ insuranceQuoteResponse.premium }}</p>
 </div>
 

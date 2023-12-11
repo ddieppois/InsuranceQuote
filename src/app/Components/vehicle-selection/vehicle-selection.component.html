@@ -1,5 +1,5 @@
-<p>vehicle-selection works!</p>
-<div [formGroup]="insuranceQuoteForm">
+<h2>Here is an exhaustive list of all the cars available for a quote</h2>
+<div [formGroup]="insuranceQuoteForm" class="form-container">
   <mat-form-field appearance="fill">
     <mat-label>Category</mat-label>
     <mat-select formControlName="category" (selectionChange)="onCategoryChange()">
